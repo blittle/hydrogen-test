@@ -19,7 +19,7 @@ function App({request}) {
   const countryCode = localeMatch ? localeMatch[1] : undefined;
 
   const isHome = pathname === `/${countryCode ? countryCode + '/' : ''}`;
-
+  let x = thisisanull.alsoundefined;
   return (
     <Suspense fallback={<HeaderFallback isHome={isHome} />}>
       <EventsListener />
