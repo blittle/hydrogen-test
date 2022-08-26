@@ -1,6 +1,17 @@
 import {defineConfig, CookieSessionStorage} from '@shopify/hydrogen/config';
 
 export default defineConfig({
+  logger: {
+  error(context, error, ...extra) {
+    const url = context ? ` ${context.url}` : '';
+
+    if (error instanceof Error) {
+      console.error(`Error processing route:${url}\n${error.stack}`);
+    } else {
+      console.error(`Error:${url} ${error}`);
+    }
+  },
+  },
   shopify: {
     defaultCountryCode: 'US',
     defaultLanguageCode: 'EN',
